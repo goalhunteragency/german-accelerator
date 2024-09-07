@@ -4,14 +4,14 @@ function addHoverEffects() {
   
   faqItems.forEach(faqItem => {
     const button = faqItem.querySelector('.faq-item__button');
-    const inner = faqItem.querySelector('.faq-item__inner');
+    const contentWrap = faqItem.querySelector('.faq-item__content-wrap');
     const numberClip = faqItem.querySelector('.faq-item__number-clip');
     const description = faqItem.querySelector('.faq-item__description');
 
-    // Set initial height to 2.5rem and prepare transition for inner
-    inner.style.height = '2.5rem';
-    inner.style.overflow = 'hidden';  // To hide content that exceeds the height
-    inner.style.transition = 'height 0.5s ease';
+    // Set initial height to 2.5rem and prepare transition for contentWrap
+    contentWrap.style.height = '2.5rem';
+    contentWrap.style.overflow = 'hidden';  // To hide content that exceeds the height
+    contentWrap.style.transition = 'height 0.5s ease';
 
     // Set initial style for description
     description.style.transform = 'translateY(2rem)';
@@ -25,8 +25,8 @@ function addHoverEffects() {
       button.style.transform = 'rotate(180deg)';
 
       // Calculate the height for smooth transition
-      const fullHeight = inner.scrollHeight + 'px'; // Get the full content height
-      inner.style.height = fullHeight;
+      const fullHeight = contentWrap.scrollHeight + 'px'; // Get the full content height
+      contentWrap.style.height = fullHeight;
 
       // Number clip move up
       numberClip.style.transition = 'transform 0.5s ease';
@@ -42,8 +42,8 @@ function addHoverEffects() {
       // Reset Button rotation
       button.style.transform = 'rotate(0deg)';
 
-      // Reset Inner height to 2.5rem
-      inner.style.height = '2.5rem';
+      // Reset contentWrap height to 2.5rem
+      contentWrap.style.height = '2.5rem';
 
       // Reset Number clip move
       numberClip.style.transform = 'translateY(0%)';
